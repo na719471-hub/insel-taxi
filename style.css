@@ -1,4 +1,4 @@
-/* --- DEIN ALTER CSS CODE (Basis) --- */
+/* --- DEIN CSS CODE (Optimiert und korrigiert) --- */
 :root {
     --primary-color: #f7c948; /* Taxi Gelb */
     --primary-dark: #e0b12d;
@@ -13,6 +13,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* FIX: Sanftes Scrollen für das ganze Dokument (verhindert das "Hacken") */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -46,6 +51,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Wichtig für Mobile Positionierung */
 }
 
 .logo {
@@ -73,15 +79,15 @@ header {
     display: none;
     cursor: pointer;
     font-size: 1.8rem;
+    color: var(--primary-color);
 }
 
-/* --- Hero Section (Aktualisiert mit deinem Bild) --- */
+/* --- Hero Section --- */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('taxi.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /* Falls das Bild bei kleineren Monitoren zu kurz ist, nimm 70vh oder 80vh */
     min-height: 70vh; 
     display: flex;
     align-items: center;
@@ -158,7 +164,6 @@ section { padding: 60px 0; }
     transition: transform 0.3s;
 }
 .card:hover { transform: translateY(-5px); }
-/* Alte Icon Größe */
 .card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
 
 /* --- Tarife (Table) --- */
@@ -178,17 +183,17 @@ th { background-color: var(--dark-bg); color: var(--white); }
 tr:hover { background-color: #f1f1f1; }
 .price-highlight { color: var(--primary-dark); font-weight: bold; }
 
-/* --- Booking Form (Angepasst für oben) --- */
+/* --- Booking Form --- */
 .booking-section { 
     background: var(--dark-bg); 
     color: var(--white); 
-    border-top: 5px solid var(--primary-color); /* Gelber Strich oben */
+    border-top: 5px solid var(--primary-color);
     padding-top: 40px;
 }
 .booking-section .section-title { color: var(--white); border-color: var(--primary-color); }
 
 form {
-    max-width: 800px; /* Etwas breiter gemacht */
+    max-width: 800px;
     margin: 0 auto;
     background: #2a2a2a;
     padding: 30px;
@@ -205,6 +210,9 @@ input, select, textarea {
     background: #333;
     color: #fff;
     font-size: 1rem;
+}
+input::placeholder, textarea::placeholder {
+    color: #aaa; /* Helle Platzhalterfarbe */
 }
 input:focus, textarea:focus { outline: 2px solid var(--primary-color); }
 textarea { resize: vertical; min-height: 100px; }
@@ -223,9 +231,24 @@ button[type="submit"] {
 }
 button[type="submit"]:hover { background: var(--primary-dark); }
 
-label { display: block; margin-bottom: 15px; font-size: 0.9rem; }
-label input { width: auto; margin-right: 10px; }
-label a { color: var(--primary-color); text-decoration: underline; }
+/* FIX: Datenschutz Checkbox Styles verbessert */
+.checkbox-label {
+    display: flex; /* Flexbox für bessere Ausrichtung */
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #ccc;
+    cursor: pointer;
+}
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    transform: scale(1.2); /* Checkbox größer machen */
+    flex-shrink: 0; /* Verhindert das Schrumpfen */
+}
+.checkbox-label a { color: var(--primary-color); text-decoration: underline; }
 
 #status { margin-top: 15px; font-weight: bold; text-align: center; }
 
@@ -268,30 +291,51 @@ footer {
     border-top: 1px solid #333;
 }
 
-/* --- Mobile Responsive --- */
+/* ========================================= */
+/* MOBILE RESPONSIVE OPTIMIERUNGEN           */
+/* ========================================= */
+
 @media (max-width: 768px) {
+    /* Menü Anpassungen */
+    .hamburger { 
+        display: block; 
+        margin-left: auto; /* Zwingt die 3 Striche nach rechts */
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         background: var(--dark-bg);
         position: absolute;
-        top: 60px;
-        right: 0;
+        top: 100%; /* Hängt direkt unter dem Header */
+        left: 0;
         width: 100%;
         text-align: center;
         padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
     }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+    }
+
     .nav-links.active { display: flex; }
-    .hamburger { display: block; }
+
+    /* Schriftgrößen anpassen */
     .hero h1 { font-size: 2rem; }
     .payment-icons { font-size: 2rem; gap: 20px; }
 }
 
 /* ========================================= */
-/* NEUE STYLES (Hinzugefügt für deine Wünsche) */
+/* ZUSÄTZLICHE STYLES (Zahlung, Flotte, Kontakt) */
 /* ========================================= */
 
-/* 1. Neuer Zahlungsbalken */
 .payment-strip {
     background: #f1f1f1;
     padding: 30px 0;
@@ -311,7 +355,7 @@ footer {
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
-    font-size: 3rem; /* Groß! */
+    font-size: 3rem;
     color: #555;
 }
 .payment-icons i {
@@ -321,7 +365,6 @@ footer {
     color: var(--primary-dark);
 }
 
-/* 2. Moderne Flotten Icons */
 .icon-modern {
     font-size: 3.5rem;
     color: var(--primary-color);
@@ -334,7 +377,6 @@ footer {
     display: inline-block;
 }
 
-/* 3. Extra Kontakt-Leiste (Groß & Modern) */
 .contact-big-section {
     background: var(--white);
     padding: 80px 0;
@@ -369,7 +411,7 @@ footer {
     letter-spacing: 1px;
 }
 .contact-box-big p, .contact-box-big a {
-    font-size: 1.4rem; /* Große Schrift */
+    font-size: 1.4rem;
     font-weight: bold;
     color: #333;
     display: block;
