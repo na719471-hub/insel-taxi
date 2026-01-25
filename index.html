@@ -41,12 +41,12 @@
     </div>
 
     <section id="start" class="hero">
-    <div class="container">
-        <h1>Willkommen bei <span>Insel Taxi</span> Ratzeburg</h1>
-        <p>Pünktlich. Sicher. Zuverlässig. Ihr Partner für regionale und bundesweite Fahrten.</p>
-        <a href="#buchen" class="btn">Fahrt jetzt buchen</a>
-    </div>
-</section>
+        <div class="container">
+            <h1>Willkommen bei <span>Insel Taxi</span> Ratzeburg</h1>
+            <p>Pünktlich. Sicher. Zuverlässig. Ihr Partner für regionale und bundesweite Fahrten.</p>
+            <a href="#buchen" class="btn">Fahrt jetzt buchen</a>
+        </div>
+    </section>
 
     <section id="buchen" class="booking-section">
         <div class="container">
@@ -69,17 +69,17 @@
                 </div>
 
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-                    <input type="date" name="date" required>
-                    <input type="time" name="time" required>
+                    <input type="text" name="date" placeholder="Datum auswählen" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                    <input type="text" name="time" placeholder="Uhrzeit auswählen" onfocus="(this.type='time')" onblur="(this.type='text')" required>
                 </div>
 
                 <input type="number" name="passengers" placeholder="Anzahl Passagiere (1-8)" min="1" max="8" required>
 
                 <textarea name="note" placeholder="Anmerkung (z.B. Kindersitz, viel Gepäck, Kartenzahlung)"></textarea>
 
-                <label style="color:#ccc;">
+                <label class="checkbox-label">
                     <input type="checkbox" name="datenschutz" required>
-                    Ich stimme der Verarbeitung meiner Daten gemäß der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.
+                    <span>Ich stimme der Verarbeitung meiner Daten gemäß der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zu.</span>
                 </label>
 
                 <button type="submit">KOSTENLOS ANFRAGEN</button>
@@ -289,6 +289,13 @@
             const nav = document.getElementById('navLinks');
             nav.classList.toggle('active');
         }
+
+        // FIX: Menü automatisch schließen, wenn ein Link geklickt wird
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
 
         // Formular Handler (Dein Original Code)
         document.getElementById("fahrtForm").addEventListener("submit", function(e) {
