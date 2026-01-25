@@ -1,0 +1,377 @@
+/* --- DEIN ALTER CSS CODE (Basis) --- */
+:root {
+    --primary-color: #f7c948; /* Taxi Gelb */
+    --primary-dark: #e0b12d;
+    --text-color: #333;
+    --bg-light: #f9f9f9;
+    --dark-bg: #1a1a1a;
+    --white: #ffffff;
+    --success: #28a745;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- Header & Navigation --- */
+header {
+    background: var(--dark-bg);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary-color); }
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+/* --- Hero Section (Aktualisiert mit deinem Bild) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('taxi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Falls das Bild bei kleineren Monitoren zu kurz ist, nimm 70vh oder 80vh */
+    min-height: 70vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--white);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.hero h1 span { color: var(--primary-color); }
+
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* --- Stats / USPs --- */
+.stats {
+    background: var(--primary-color);
+    padding: 40px 0;
+    text-align: center;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.stat-item h3 { font-size: 2rem; margin-bottom: 5px; color: var(--dark-bg); }
+.stat-item p { font-weight: bold; }
+
+/* --- General Sections --- */
+section { padding: 60px 0; }
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--dark-bg);
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+}
+.center-text { text-align: center; }
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+/* Alte Icon Größe */
+.card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+
+/* --- Tarife (Table) --- */
+.table-container { overflow-x: auto; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    margin-top: 20px;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th { background-color: var(--dark-bg); color: var(--white); }
+tr:hover { background-color: #f1f1f1; }
+.price-highlight { color: var(--primary-dark); font-weight: bold; }
+
+/* --- Booking Form (Angepasst für oben) --- */
+.booking-section { 
+    background: var(--dark-bg); 
+    color: var(--white); 
+    border-top: 5px solid var(--primary-color); /* Gelber Strich oben */
+    padding-top: 40px;
+}
+.booking-section .section-title { color: var(--white); border-color: var(--primary-color); }
+
+form {
+    max-width: 800px; /* Etwas breiter gemacht */
+    margin: 0 auto;
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+    font-size: 1rem;
+}
+input:focus, textarea:focus { outline: 2px solid var(--primary-color); }
+textarea { resize: vertical; min-height: 100px; }
+
+button[type="submit"] {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    font-size: 1.1rem;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+button[type="submit"]:hover { background: var(--primary-dark); }
+
+label { display: block; margin-bottom: 15px; font-size: 0.9rem; }
+label input { width: auto; margin-right: 10px; }
+label a { color: var(--primary-color); text-decoration: underline; }
+
+#status { margin-top: 15px; font-weight: bold; text-align: center; }
+
+/* --- Floating Buttons --- */
+.floating-btns {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 2000;
+}
+.float-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+.float-btn:hover { transform: scale(1.1); }
+.wa-btn { background-color: #25D366; }
+.call-btn { background-color: #007bff; }
+
+/* --- Footer --- */
+footer {
+    background: #111;
+    color: #aaa;
+    padding: 40px 0 20px;
+    font-size: 0.9rem;
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--dark-bg);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .hero h1 { font-size: 2rem; }
+    .payment-icons { font-size: 2rem; gap: 20px; }
+}
+
+/* ========================================= */
+/* NEUE STYLES (Hinzugefügt für deine Wünsche) */
+/* ========================================= */
+
+/* 1. Neuer Zahlungsbalken */
+.payment-strip {
+    background: #f1f1f1;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+.payment-strip h3 {
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-size: 3rem; /* Groß! */
+    color: #555;
+}
+.payment-icons i {
+    transition: color 0.3s;
+}
+.payment-icons i:hover {
+    color: var(--primary-dark);
+}
+
+/* 2. Moderne Flotten Icons */
+.icon-modern {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    background: var(--dark-bg);
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* 3. Extra Kontakt-Leiste (Groß & Modern) */
+.contact-big-section {
+    background: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    border-top: 5px solid #eee;
+}
+.contact-grid-big {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+.contact-box-big {
+    padding: 30px;
+    border: 2px solid #f4f4f4;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.contact-box-big:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.contact-box-big i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.contact-box-big h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.contact-box-big p, .contact-box-big a {
+    font-size: 1.4rem; /* Große Schrift */
+    font-weight: bold;
+    color: #333;
+    display: block;
+    line-height: 1.4;
+}
