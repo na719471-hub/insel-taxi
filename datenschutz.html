@@ -5,20 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung | Insel Taxi Ratzeburg</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .legal-content { padding: 60px 0; line-height: 1.6; color: #333; }
-        .legal-content h1 { border-bottom: 3px solid var(--primary-color); display: inline-block; margin-bottom: 20px; }
-        .legal-content h2 { margin-top: 30px; background: #eee; padding: 5px 10px; font-size: 1.2rem; }
-        .legal-content h3 { margin-top: 20px; font-size: 1.1rem; color: var(--dark-bg); }
+        /* Spezifische Styles für Legal-Pages (Handy-Optimiert) */
+        
+        /* Einfacher Header für Unterseiten */
+        .simple-header {
+            background: var(--dark-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Der Zurück-Button */
+        .back-btn {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .back-btn:hover { transform: scale(1.05); }
+
+        /* Inhalt Styles */
+        .legal-content { 
+            padding: 40px 0 80px; /* Mehr Platz unten */
+            line-height: 1.8; 
+            color: #333; 
+            background: #fff;
+        }
+        
+        .legal-content h1 { 
+            border-bottom: 3px solid var(--primary-color); 
+            display: inline-block; 
+            margin-bottom: 30px; 
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        
+        .legal-content h2 { 
+            margin-top: 40px; 
+            margin-bottom: 15px;
+            background: #f4f4f4; 
+            padding: 10px 15px; 
+            border-left: 5px solid var(--primary-color);
+            font-size: 1.3rem; 
+            border-radius: 4px;
+        }
+        
+        .legal-content h3 { 
+            margin-top: 25px; 
+            font-size: 1.1rem; 
+            color: var(--dark-bg); 
+            font-weight: bold;
+        }
+        
         .legal-content p, .legal-content ul { margin-bottom: 15px; }
+        .legal-content ul { padding-left: 20px; }
+        .legal-content li { margin-bottom: 5px; }
+
+        /* Mobile Anpassungen */
+        @media (max-width: 600px) {
+            .legal-content { padding: 30px 0; }
+            .legal-content h1 { font-size: 1.6rem; }
+            .legal-content h2 { font-size: 1.2rem; }
+            .logo span { display: none; } /* Nur Icon auf sehr kleinen Handys wenn nötig, oder Text kleiner */
+            .logo { font-size: 1.2rem; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo">Insel Taxi</div>
-            <nav><ul class="nav-links"><li><a href="index.html">Zurück zur Startseite</a></li></ul></nav>
+    <header class="simple-header">
+        <div class="container header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Startseite
+            </a>
+            <div class="logo">
+                <i class="fas fa-taxi"></i> Insel Taxi
+            </div>
         </div>
     </header>
 
@@ -34,50 +113,49 @@
             <p><strong>Wer ist verantwortlich für die Datenerfassung?</strong> Die Datenverarbeitung erfolgt durch den Websitebetreiber (siehe Impressum).</p>
             <p><strong>Wie erfassen wir Ihre Daten?</strong> Ihre Daten werden dadurch erhoben, dass Sie uns diese mitteilen (z. B. im Buchungsformular). Andere Daten werden automatisch durch unsere IT-Systeme erfasst (technische Daten wie Browser oder Uhrzeit).</p>
 
-            <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+            <h2>2. Allgemeine Hinweise</h2>
             <p>Der Schutz Ihrer Daten ist uns wichtig. Wir behandeln Ihre Daten vertraulich und nach den gesetzlichen Vorschriften (DSGVO).</p>
 
-            <h3>Hinweis zur verantwortlichen Stelle</h3>
+            <h3>Verantwortliche Stelle</h3>
             <p>
-                Insel Taxi<br>
+                <strong>Insel Taxi</strong><br>
                 Naeem Ahmed<br>
                 Zittschower Weg 11a<br>
                 23909 Ratzeburg<br>
-                E-Mail: info@inseltaxi-ratzeburg.de
+                <a href="mailto:info@inseltaxi-ratzeburg.de" style="color:var(--primary-dark);">info@inseltaxi-ratzeburg.de</a>
             </p>
 
             <h3>Speicherdauer</h3>
             <p>Wir speichern Ihre Daten nur so lange, wie es für die Bearbeitung Ihrer Anfrage oder aufgrund gesetzlicher Aufbewahrungsfristen (z. B. für die Buchhaltung) erforderlich ist.</p>
 
-            <h2>3. Datenerfassung auf dieser Website</h2>
+            <h2>3. Datenerfassung</h2>
 
-            <h3>Buchungsformular & Google Scripts / Google Sheets</h3>
+            <h3>Buchungsformular & Google Services</h3>
             <p>Wenn Sie unser Online-Buchungsformular nutzen, werden Ihre Angaben (Name, E-Mail, Telefonnummer, Start- und Zieladresse, Datum, Uhrzeit) zur Bearbeitung der Fahrtanfrage verarbeitet.</p>
-            <p><strong>Verarbeitung durch Google:</strong> Diese Website nutzt Google Apps Script, um die Daten aus dem Formular an ein Google Sheet (Online-Tabelle) zu übertragen. Empfänger der Daten ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung oder vorvertragliche Maßnahmen).</p>
+            <p><strong>Google Sheets:</strong> Diese Website nutzt Google Apps Script, um die Daten aus dem Formular an ein Google Sheet zu übertragen. Die Datenverarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).</p>
 
             <h3>WhatsApp</h3>
-            <p>Wenn Sie uns per WhatsApp kontaktieren, wird Ihre Telefonnummer und die Nachricht zur Bearbeitung der Anfrage gespeichert. Wir weisen darauf hin, dass WhatsApp (Meta Platforms, Inc.) Daten in die USA überträgt. Die Kommunikation erfolgt auf Grundlage Ihrer freiwilligen Kontaktaufnahme (Art. 6 Abs. 1 lit. a DSGVO).</p>
-
-            <h3>E-Mail und Telefon</h3>
-            <p>Anfragen per E-Mail oder Telefon werden inklusive aller daraus hervorgehenden Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert (Art. 6 Abs. 1 lit. b DSGVO).</p>
+            <p>Wenn Sie uns per WhatsApp kontaktieren, wird Ihre Telefonnummer und die Nachricht zur Bearbeitung der Anfrage gespeichert. WhatsApp kann Daten in die USA übertragen.</p>
 
             <h2>4. Ihre Rechte</h2>
             <p>Sie haben jederzeit das Recht auf:</p>
             <ul>
                 <li><strong>Auskunft</strong> über Ihre gespeicherten Daten.</li>
                 <li><strong>Berichtigung</strong> unrichtiger Daten.</li>
-                <li><strong>Löschung</strong> Ihrer Daten (sofern keine gesetzliche Aufbewahrungspflicht besteht).</li>
-                <li><strong>Widerruf</strong> Ihrer Einwilligung zur Datenverarbeitung.</li>
+                <li><strong>Löschung</strong> Ihrer Daten.</li>
+                <li><strong>Widerruf</strong> Ihrer Einwilligung.</li>
             </ul>
-            <p>Wenden Sie sich dazu bitte direkt an uns. Zudem steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+            <p>Wenden Sie sich dazu bitte direkt an uns.</p>
 
             <h2>5. Hosting</h2>
-            <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Dies umfasst v. a. IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten.</p>
+            <p>Diese Website wird extern gehostet. IP-Adressen und Log-Daten werden auf den Servern des Hosters gespeichert.</p>
         </div>
     </main>
 
-    <footer style="background: #111; color: #fff; padding: 20px 0; text-align: center;">
-        <div class="container"><p>&copy; 2026 Insel Taxi Ratzeburg</p></div>
+    <footer style="background: #111; color: #777; padding: 30px 0; text-align: center; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 Insel Taxi Ratzeburg</p>
+        </div>
     </footer>
 
 </body>
