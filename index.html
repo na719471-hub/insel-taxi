@@ -7,6 +7,17 @@
     <meta name="description" content="Insel Taxi Ratzeburg - 24h Service, Flughafentransfer, Großraumtaxi und Krankenfahrten. Jetzt online buchen!">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .email-fix {
+            white-space: nowrap;       /* Verhindert Umbruch */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            max-width: 100%;
+            font-size: clamp(0.8rem, 4vw, 1.4rem); /* Schriftgröße passt sich an Platz an */
+        }
+    </style>
 </head>
 <body>
 
@@ -41,10 +52,27 @@
     </div>
 
     <section id="start" class="hero">
-        <div class="container">
-            <h1>Willkommen bei <span>Insel Taxi</span> Ratzeburg</h1>
-            <p>Pünktlich. Sicher. Zuverlässig. Ihr Partner für regionale und bundesweite Fahrten.</p>
-            <a href="#buchen" class="btn">Fahrt jetzt buchen</a>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-circle" style="font-size: 8px; vertical-align: middle; margin-right: 5px;"></i> 24/7 SERVICE IN RATZEBURG
+            </div>
+            
+            <h1>Zuverlässig. <span>Schnell.</span> Komfortabel.</h1>
+            
+            <p>
+                Ihr professioneller Partner für Personenbeförderung im Herzogtum Lauenburg. 
+                Krankenfahrten, Flughafentransfers und Großraumtaxi – alles aus einer Hand.
+            </p>
+            
+            <div class="hero-btns">
+                <a href="#buchen" class="btn-new btn-yellow">
+                    FAHRT BUCHEN
+                </a>
+                
+                <a href="tel:04541802080" class="btn-new btn-yellow">
+                    <i class="fas fa-phone-alt"></i> 04541 802080
+                </a>
+            </div>
         </div>
     </section>
 
@@ -261,7 +289,7 @@
                 <div class="contact-box-big">
                     <i class="fas fa-envelope"></i>
                     <h3>E-MAIL</h3>
-                    <a href="mailto:info@inseltaxi-ratzeburg.de" style="font-size:1.2rem;">info@inseltaxi-ratzeburg.de</a>
+                    <a href="mailto:info@inseltaxi-ratzeburg.de" class="email-fix">info@inseltaxi-ratzeburg.de</a>
                     <p style="font-size:1rem; color:#777; margin-top:5px; text-transform:none;">Für Anfragen & Rechnungen</p>
                 </div>
             </div>
@@ -290,14 +318,12 @@
             nav.classList.toggle('active');
         }
 
-        // FIX: Menü automatisch schließen, wenn ein Link geklickt wird
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('active');
             });
         });
 
-        // Formular Handler (Dein Original Code)
         document.getElementById("fahrtForm").addEventListener("submit", function(e) {
             e.preventDefault();
             const statusMsg = document.getElementById("status");
