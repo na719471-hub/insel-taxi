@@ -115,8 +115,8 @@
                     <span>Ich akzeptiere die <a href="buchungsbedingungen.html" target="_blank">Buchungsbedingungen</a> (inkl. Stornogebühren).</span>
                 </label>
 
-                <button type="submit">KOSTENLOS ANFRAGEN</button>
-                <p id="status"></p>
+                <button type="submit" id="submitButton">KOSTENPFLICHTIG ANFRAGEN</button>
+                <p id="status" style="margin-top: 15px; font-weight: bold; min-height: 24px;"></p>
             </form>
         </div>
     </section>
@@ -330,54 +330,65 @@
             });
         });
 
-        // Formular Absenden mit verbesserter IP-Erfassung
+        // REPARIERTES FORMULAR SKRIPT
         document.getElementById("fahrtForm").addEventListener("submit", function(e) {
             e.preventDefault();
+            
+            // --- 1. STATUS: "WIRD GESENDET" (Gelb) ---
             const statusMsg = document.getElementById("status");
-            statusMsg.innerText = "IP wird ermittelt...";
-            statusMsg.style.color = "yellow";
+            const submitBtn = document.getElementById("submitButton");
+            
+            statusMsg.innerText = "Anfrage wird gesendet... Bitte warten.";
+            statusMsg.style.color = "#FFC107"; // Gelb/Orange
+            submitBtn.disabled = true; // Button deaktivieren um Doppelklicks zu verhindern
+            submitBtn.innerText = "Sende...";
 
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+            let data = Object.fromEntries(formData.entries());
 
-            // 1. IP Adresse holen
+            // Funktion zum Senden an Google Script
+            const sendToGoogleScript = (dataToSend) => {
+                
+                // *** WICHTIG: HIER DEINE URL EINFÜGEN ***
+                const scriptURL = "HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN";
+
+                fetch(scriptURL, {
+                    method: "POST",
+                    body: JSON.stringify(dataToSend),
+                    mode: 'no-cors' // Wichtig für Google Sheets
+                })
+                .then(() => {
+                    // --- 2. STATUS: "ERFOLGREICH" (Grün) ---
+                    // Dies wird erst ausgeführt, wenn fetch 'fertig' ist
+                    statusMsg.innerText = "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.";
+                    statusMsg.style.color = "#4CAF50"; // Grün
+                    document.getElementById("fahrtForm").reset(); // Formular leeren
+                    submitBtn.innerText = "KOSTENPFLICHTIG ANFRAGEN";
+                    submitBtn.disabled = false;
+                })
+                .catch((error) => {
+                    // --- 3. STATUS: "FEHLGESCHLAGEN" (Rot) ---
+                    console.error('Error:', error);
+                    statusMsg.innerText = "Fehler beim Senden. Bitte rufen Sie uns an: 04541 802080";
+                    statusMsg.style.color = "red";
+                    submitBtn.innerText = "Erneut versuchen";
+                    submitBtn.disabled = false;
+                });
+            };
+
+            // Versuch: IP Adresse holen
             fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(ipData => {
-                data.ip = ipData.ip; // IP zur Datenliste hinzufügen
-                statusMsg.innerText = "Sende Anfrage...";
-                
-                // 2. Daten an Google Script senden
-                // WICHTIG: Ersetze die URL unten mit deiner NEUEN Web-App-URL
-                return fetch("HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN", {
-                    method: "POST",
-                    body: JSON.stringify(data),
-                    mode: 'no-cors'
-                });
-            })
-            .then(() => {
-                statusMsg.innerText = "Danke! Ihre Anfrage wurde gesendet.";
-                statusMsg.style.color = "#4CAF50"; 
-                document.getElementById("fahrtForm").reset();
+                data.ip = ipData.ip;
+                // Daten mit IP senden
+                sendToGoogleScript(data);
             })
             .catch((error) => {
-                console.error('Error:', error);
-                // Fallback: Falls IP-Dienst blockiert ist, trotzdem senden
-                if (data.ip === undefined) {
-                    data.ip = "Nicht ermittelbar";
-                    fetch("HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN", {
-                        method: "POST",
-                        body: JSON.stringify(data),
-                        mode: 'no-cors'
-                    }).then(() => {
-                         statusMsg.innerText = "Danke! Ihre Anfrage wurde gesendet.";
-                         statusMsg.style.color = "#4CAF50";
-                         document.getElementById("fahrtForm").reset();
-                    });
-                } else {
-                    statusMsg.innerText = "Fehler. Bitte rufen Sie an.";
-                    statusMsg.style.color = "red";
-                }
+                console.log("IP konnte nicht ermittelt werden, sende trotzdem...");
+                data.ip = "Nicht ermittelbar";
+                // Daten ohne IP senden (Fallback)
+                sendToGoogleScript(data);
             });
         });
     </script>
