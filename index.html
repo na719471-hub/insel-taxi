@@ -349,17 +349,17 @@
             // Funktion zum Senden an Google Script
             const sendToGoogleScript = (dataToSend) => {
                 
-                // *** WICHTIG: HIER DEINE URL EINFÜGEN ***
-                const scriptURL = "HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN";
+                // DEINE URL WURDE HIER EINGEFÜGT:
+                const scriptURL = "https://script.google.com/macros/s/AKfycbytyr749-IGjFrV7PpVWCLGpZVk1MpDxcvX5QD53iDHS2hqkBunlrjUTMBO34xu68AMhw/exec";
 
                 fetch(scriptURL, {
                     method: "POST",
                     body: JSON.stringify(dataToSend),
-                    mode: 'no-cors' // Wichtig für Google Sheets
+                    mode: 'no-cors' // Wichtig: Damit darf der Browser an Google senden
                 })
                 .then(() => {
                     // --- 2. STATUS: "ERFOLGREICH" (Grün) ---
-                    // Dies wird erst ausgeführt, wenn fetch 'fertig' ist
+                    // Diese Zeile wird erst ausgeführt, wenn der Browser fertig gesendet hat
                     statusMsg.innerText = "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.";
                     statusMsg.style.color = "#4CAF50"; // Grün
                     document.getElementById("fahrtForm").reset(); // Formular leeren
