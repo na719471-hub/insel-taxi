@@ -330,11 +330,11 @@
             });
         });
 
-        // Formular Absenden mit IP-Erfassung
+        // Formular Absenden mit verbesserter IP-Erfassung
         document.getElementById("fahrtForm").addEventListener("submit", function(e) {
             e.preventDefault();
             const statusMsg = document.getElementById("status");
-            statusMsg.innerText = "Sende Anfrage (IP wird ermittelt)...";
+            statusMsg.innerText = "IP wird ermittelt...";
             statusMsg.style.color = "yellow";
 
             const formData = new FormData(this);
@@ -343,34 +343,42 @@
             // 1. IP Adresse holen
             fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
-            .then(json => {
-                data.ip = json.ip; // IP zur Datenliste hinzufügen
-                sendToGoogle(data);
-            })
-            .catch(err => {
-                console.warn("IP konnte nicht ermittelt werden", err);
-                data.ip = "Nicht ermittelbar";
-                sendToGoogle(data);
-            });
-
-            // 2. Daten an Google Script senden
-            function sendToGoogle(finalData) {
-                fetch("https://script.google.com/macros/s/AKfycbzkJAI6ykTGqYvAyLR28oTPZMIkRylNa0XU5_uGuUqfFAgeVdSAIcz2aEk8rcLPACQ/exec", {
+            .then(ipData => {
+                data.ip = ipData.ip; // IP zur Datenliste hinzufügen
+                statusMsg.innerText = "Sende Anfrage...";
+                
+                // 2. Daten an Google Script senden
+                // WICHTIG: Ersetze die URL unten mit deiner NEUEN Web-App-URL
+                return fetch("HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN", {
                     method: "POST",
-                    body: JSON.stringify(finalData),
+                    body: JSON.stringify(data),
                     mode: 'no-cors'
-                })
-                .then(() => {
-                    statusMsg.innerText = "Danke! Ihre Anfrage wurde gesendet.";
-                    statusMsg.style.color = "#4CAF50"; 
-                    document.getElementById("fahrtForm").reset();
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
+                });
+            })
+            .then(() => {
+                statusMsg.innerText = "Danke! Ihre Anfrage wurde gesendet.";
+                statusMsg.style.color = "#4CAF50"; 
+                document.getElementById("fahrtForm").reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Fallback: Falls IP-Dienst blockiert ist, trotzdem senden
+                if (data.ip === undefined) {
+                    data.ip = "Nicht ermittelbar";
+                    fetch("HIER_DEINE_NEUE_GOOGLE_SCRIPT_URL_EINFÜGEN", {
+                        method: "POST",
+                        body: JSON.stringify(data),
+                        mode: 'no-cors'
+                    }).then(() => {
+                         statusMsg.innerText = "Danke! Ihre Anfrage wurde gesendet.";
+                         statusMsg.style.color = "#4CAF50";
+                         document.getElementById("fahrtForm").reset();
+                    });
+                } else {
                     statusMsg.innerText = "Fehler. Bitte rufen Sie an.";
                     statusMsg.style.color = "red";
-                });
-            }
+                }
+            });
         });
     </script>
 </body>
