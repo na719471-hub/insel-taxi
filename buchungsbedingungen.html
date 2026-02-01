@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchungsbedingungen | Insel Taxi Ratzeburg</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Übernommene Styles für Konsistenz mit Impressum/Datenschutz */
+        .simple-header {
+            background: var(--dark-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .back-btn:hover { transform: scale(1.05); }
+
+        .legal-content { 
+            padding: 40px 0 80px;
+            line-height: 1.8; 
+            color: #333; 
+            background: #fff;
+        }
+        
+        .legal-content h1 { 
+            border-bottom: 3px solid var(--primary-color); 
+            display: inline-block; 
+            margin-bottom: 30px; 
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        .legal-content h2 { 
+            margin-top: 30px; 
+            margin-bottom: 15px;
+            font-size: 1.3rem; 
+            color: var(--dark-bg);
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .legal-content p { margin-bottom: 15px; text-align: justify; }
+        
+        /* Mobile Anpassungen */
+        @media (max-width: 600px) {
+            .legal-content { padding: 30px 0; }
+            .legal-content h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="simple-header">
+        <div class="container header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Startseite
+            </a>
+            <div class="logo">
+                <i class="fas fa-taxi"></i> Insel Taxi
+            </div>
+        </div>
+    </header>
+
+    <main class="legal-content">
+        <div class="container">
+            <h1>Allgemeine Buchungsbedingungen</h1>
+            <p>Für die Nutzung unserer Dienstleistungen und die Buchung von Fahrten gelten die folgenden Bedingungen. Mit der Beauftragung von Insel Taxi Ratzeburg (mündlich, telefonisch, schriftlich oder digital) erkennen Sie diese Bedingungen an.</p>
+
+            <h2>1. Kostenpflichtigkeit und Vertragsabschluss</h2>
+            <p>Jede Bestellung eines Taxis ist ein verbindliches Angebot zum Abschluss eines Beförderungsvertrages. Dies gilt unabhängig davon, ob die Bestellung telefonisch, per E-Mail, WhatsApp oder über unser Online-Buchungsformular erfolgt.</p>
+            <p>Ein Beförderungsvertrag kommt zustande, sobald wir die Fahrt bestätigen. Bei Online-Anfragen erhalten Sie eine Bestätigung (in der Regel per E-Mail oder WhatsApp). Bei Sofortbestellungen am Telefon kommt der Vertrag mit der mündlichen Zusage des Disponenten oder Fahrers zustande. Die Beförderung erfolgt entgeltlich gemäß der geltenden Tarifordnung des Kreises Herzogtum Lauenburg bzw. bei Fernfahrten gemäß vorheriger Pauschalpreisvereinbarung.</p>
+
+            <h2>2. Angaben des Kunden</h2>
+            <p>Der Kunde ist verpflichtet, bei der Buchung wahrheitsgemäße und vollständige Angaben zu machen. Dies betrifft insbesondere:</p>
+            <ul>
+                <li>Name und Erreichbarkeit (Mobilnummer)</li>
+                <li>Datum und genaue Uhrzeit der Abholung</li>
+                <li>Start- und Zieladresse</li>
+                <li>Anzahl der Personen und Gepäckstücke</li>
+                <li>Besonderheiten (z.B. Kindersitze, Großraumtaxi-Bedarf)</li>
+            </ul>
+            <p>Für Verzögerungen oder Nicht-Erfüllung, die auf fehlerhaften Angaben des Kunden beruhen (z.B. falsches Datum, falscher Ort), haftet der Kunde in voller Höhe der entstandenen Kosten.</p>
+
+            <h2>3. Zahlung</h2>
+            <p>Der Fahrpreis ist unmittelbar nach Beendigung der Fahrt fällig. Wir akzeptieren folgende Zahlungsmittel:</p>
+            <ul>
+                <li>Barzahlung</li>
+                <li>EC-Karte / Girocard</li>
+                <li>Kreditkarten (Visa, Mastercard)</li>
+                <li>Apple Pay / Google Pay</li>
+                <li>PayPal (nach Absprache)</li>
+            </ul>
+            <p>Rechnungsfahrten sind nur für registrierte Firmenkunden oder nach vorheriger schriftlicher Vereinbarung möglich.</p>
+
+            <h2>4. Stornierung und Ausfallgebühr</h2>
+            <p>Wir verstehen, dass sich Pläne ändern können. Dennoch halten wir Fahrzeuge und Personal für Ihre gebuchte Zeit bereit. Daher gelten folgende Stornierungsbedingungen:</p>
+            
+            <p><strong>Rechtzeitige Stornierung:</strong><br>
+            Eine Stornierung ist bis zu <strong>60 Minuten vor</strong> dem vereinbarten Abholtermin kostenfrei möglich. Die Stornierung muss telefonisch oder schriftlich (mit Bestätigung unsererseits) erfolgen.</p>
+
+            <p><strong>Verspätete Stornierung & Nicht-Erscheinen (No-Show):</strong><br>
+            Erfolgt die Stornierung weniger als 60 Minuten vor dem Termin oder erscheint der Fahrgast nicht am vereinbarten Abholort ohne abzusagen, stellen wir eine <strong>Ausfallgebühr</strong> in Rechnung.</p>
+            
+            <p>Für Fahrten, deren Startpunkt innerhalb des <strong>Pflichtfahrgebietes</strong> (Ratzeburg und nähere Umgebung) liegt, berechnen wir eine <strong>Pauschale von 20,00 €</strong> als Aufwandsentschädigung für Anfahrt und Bereitstellung.</p>
+            
+            <p>Bei Fahrten, die außerhalb des Pflichtfahrgebietes starten oder bei vorbestellten Fernfahrten (z.B. Flughafentransfer), behalten wir uns vor, die tatsächlich entstandenen Kosten für Anfahrt und Verdienstausfall (bis zur Höhe des voraussichtlichen Fahrpreises) in Rechnung zu stellen.</p>
+
+            <h2>5. Datenspeicherung und IP-Adresse</h2>
+            <p>Zur Bearbeitung Ihrer Buchungsanfrage speichern wir die von Ihnen eingegebenen personenbezogenen Daten (Name, Telefon, E-Mail, Fahrtdetails) gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <p><strong>Sicherheitsmaßnahme:</strong> Bei der Nutzung unseres Online-Buchungsformulars wird zusätzlich Ihre <strong>IP-Adresse</strong> erfasst und zusammen mit der Buchung gespeichert. Dies dient ausschließlich der Sicherheit und dem Nachweis im Falle von missbräuchlichen Buchungen (Spaßbestellungen) oder Betrugsversuchen, um ggf. zivil- oder strafrechtliche Schritte einleiten zu können. Mit Absenden des Formulars stimmen Sie dieser Speicherung zu.</p>
+        </div>
+    </main>
+
+    <footer style="background: #111; color: #777; padding: 30px 0; text-align: center; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 Insel Taxi Ratzeburg</p>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html" style="margin: 0 10px; text-decoration: underline;">Impressum</a>
+                <a href="datenschutz.html" style="margin: 0 10px; text-decoration: underline;">Datenschutz</a>
+                <a href="buchungsbedingungen.html" style="margin: 0 10px; text-decoration: underline;">Buchungsbedingungen</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Insel Taxi Ratzeburg</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Identische Styles für konsistenten Look */
+        .simple-header {
+            background: var(--dark-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+        .back-btn:hover { transform: scale(1.05); }
+
+        .legal-content { padding: 40px 0 80px; line-height: 1.8; color: #333; background: #fff; }
+        .legal-content h1 { border-bottom: 3px solid var(--primary-color); display: inline-block; margin-bottom: 30px; font-size: 2rem; }
+        
+        /* Boxen für die Impressum-Teile */
+        section { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        section:last-child { border-bottom: none; }
+
+        .legal-content h2 { 
+            font-size: 1.2rem; 
+            color: var(--dark-bg); 
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .legal-content p { margin-bottom: 10px; font-size: 1.05rem; }
+        .legal-content a { color: #007bff; text-decoration: none; }
+        .legal-content a:hover { text-decoration: underline; }
+
+        /* Mobile Anpassungen */
+        @media (max-width: 600px) {
+            .legal-content { padding: 30px 0; }
+            .legal-content h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="simple-header">
+        <div class="container header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Startseite
+            </a>
+            <div class="logo">
+                <i class="fas fa-taxi"></i> Insel Taxi
+            </div>
+        </div>
+    </header>
+
+    <main class="legal-content">
+        <div class="container">
+            <h1>Impressum</h1>
+
+            <section>
+                <h2>Angaben gemäß § 5 TMG</h2>
+                <p>
+                    <strong>Naeem Ahmed</strong><br>
+                    Insel Taxi Ratzeburg<br>
+                    Zittschower Weg 11a<br>
+                    23909 Ratzeburg
+                </p>
+            </section>
+
+            <section>
+                <h2>Kontakt</h2>
+                <p>
+                    <i class="fas fa-phone" style="color:var(--primary-color); width:20px;"></i> 
+                    <a href="tel:04541802080" style="font-weight:bold; color:#333;">04541 802080</a>
+                </p>
+                <p>
+                    <i class="fas fa-envelope" style="color:var(--primary-color); width:20px;"></i> 
+                    <a href="mailto:info@inseltaxi-ratzeburg.de">info@inseltaxi-ratzeburg.de</a>
+                </p>
+            </section>
+
+            <section>
+                <h2>Umsatzsteuer-ID</h2>
+                <p>
+                    Gemäß § 27 a Umsatzsteuergesetz:<br>
+                    <strong>DE221613879</strong>
+                </p>
+            </section>
+
+            <section>
+                <h2>Aufsichtsbehörde</h2>
+                <p>
+                    Fachdienst Straßenverkehr – Kreis Herzogtum Lauenburg<br>
+                    Kesselflickerstraße 2<br>
+                    21493 Elmenhorst
+                </p>
+            </section>
+
+            <section>
+                <h2>Berufsrechtliche Regelungen</h2>
+                <p>
+                    <strong>Berufsbezeichnung:</strong> Kraftverkehrsunternehmer (Deutschland)<br>
+                    <strong>Kammer:</strong> IHK zu Lübeck
+                </p>
+                <p style="font-size: 0.9rem; color: #666;">
+                    Es gelten u.a. PBefG, BOKraft, GewO, StVO.
+                </p>
+            </section>
+
+            <section>
+                <h2>Streitschlichtung</h2>
+                <p style="font-size: 0.9rem; color: #666;">Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer style="background: #111; color: #777; padding: 30px 0; text-align: center; font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 Insel Taxi Ratzeburg</p>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html" style="margin: 0 10px; text-decoration: underline;">Impressum</a>
+                <a href="datenschutz.html" style="margin: 0 10px; text-decoration: underline;">Datenschutz</a>
+                <a href="buchungsbedingungen.html" style="margin: 0 10px; text-decoration: underline;">Buchungsbedingungen</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
